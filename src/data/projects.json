@@ -1,0 +1,45 @@
+{
+    "quickDeck": {
+        "title": "QuickDeck",
+        "stack": ["Python", "Django", "Django REST", "HTML", "CSS", "Tailwndcss", "FlowBite", "JavaScript", "React", "PostgreSQL"],
+        "description": "Simple app to create, manage, and study flashcard decks.",
+        "demo": "https://9fc8ae32-1dcf-4ec0-9455-0b1e61dd2881.e1-eu-north-azure.choreoapps.dev",
+        "repo": "https://github.com/matcane/QuickDeck"
+    },
+    "collaboraWave": {
+        "title": "CollaboraWave",
+        "stack": ["Python", "Django", "Django REST", "HTML", "CSS", "Tailwndcss", "Material Tailwind", "JavaScript", "React", "PostgreSQL"],
+        "description": "Simple implementation of the Kanban method.",
+        "demo": "https://46d9d898-396f-4be6-a3e2-95606b6b5018.e1-eu-north-azure.choreoapps.dev",
+        "repo": "https://github.com/matcane/CollaboraWave"
+    },
+    "metin2Sim": {
+        "title": "Metin2Simulator",
+        "stack": ["HTML", "CSS", "Tailwndcss", "JavaScript", "React"],
+        "description": "Metin2 Bonus Simulator.",
+        "demo": "https://a38afbfd-c125-4e5a-a873-3de496dbe509.e1-eu-north-azure.choreoapps.dev",
+        "repo": "https://github.com/matcane/Metin2BonusSimulator"
+    },
+    "schronisko": {
+        "title": "Schronisko",
+        "stack": ["Python", "Django", "HTML", "CSS", "JavaScript", "PostgreSQL"],
+        "description": "Application for monitoring animals in the shelter.",
+        "demo": null,
+        "repo": "https://github.com/matcane/schronisko"
+    },
+    "duck_check": {
+        "title": "DuckCheck",
+        "stack": ["Python", "Kivy", "KivyMD", "SQLite"],
+        "description": "Simple implementation of the DuckChess variant of chess.",
+        "demo": null,
+        "repo": "https://github.com/matcane/DuckCheck"
+    },
+    "chatbot": {
+        "title": "ChatBot",
+        "stack": ["Python", "PyTorch", "NLTK", "Gradio"],
+        "description": "Simple chatbot for decision systems.",
+        "demo": null,
+        "repo": "https://github.com/matcane/DS_Chatbot"
+    }
+}
+
