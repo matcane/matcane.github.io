@@ -26,7 +26,7 @@ export function Hero() {
             </div>
 
             <div className='flex h-full w-full p-4'>
-                <div className="flex justify-center items-end w-full sm:justify-start sm:items-center"><img src={avatar} draggable='false' className='w-44 h-44 rounded-full shadow-primary shadow-lg hover:shadow-primary hover:shadow-xl sm:w-72 sm:h-72 xl:w-96 xl:h-96 2xl:w-160 2xl:h-160'/></div>
+                <div className="flex justify-center items-end w-full sm:justify-start sm:items-center"><img src={avatar} draggable='false' className='w-44 h-44 rounded-full shadow-primary shadow-lg hover:shadow-primary hover:shadow-xl sm:w-72 sm:h-72 xl:w-96 xl:h-96 2xl:w-120 2xl:h-120'/></div>
             </div>
             
         </div>

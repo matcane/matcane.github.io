@@ -1,40 +1,48 @@
-{
-    "quickDeck": {
+import duckCheck from '../assets/duckCheck.png'
+import schronisko from '../assets/schronisko.png'
+import collaboraWave from '../assets/collaboraWave.png'
+import quickDeck from '../assets/quickDeck.png'
+import metin2Sim from '../assets/metin2Sim.png'
+import chatbot from '../assets/chatbot.png'
+
+
+export const projectsData = {
+    0: {
+        "title": "Metin2Simulator",
+        "stack": ["React", "JavaScript", "Firestore", "HTML", "CSS", "Tailwndcss"],
+        "description": "Metin2 Bonus Simulator.",
+        "demo": "https://metin2bonussim.netlify.app",
+        "repo": "https://github.com/matcane/Metin2BonusSimulator"
+    },
+    1: {
         "title": "QuickDeck",
         "stack": ["Python", "Django", "Django REST", "HTML", "CSS", "Tailwndcss", "FlowBite", "JavaScript", "React", "PostgreSQL"],
         "description": "Simple app to create, manage, and study flashcard decks.",
-        "demo": "https://9fc8ae32-1dcf-4ec0-9455-0b1e61dd2881.e1-eu-north-azure.choreoapps.dev",
+        "demo": "https://quickdeck.ne.choreoapps.dev",
         "repo": "https://github.com/matcane/QuickDeck"
     },
-    "collaboraWave": {
+    2: {
         "title": "CollaboraWave",
         "stack": ["Python", "Django", "Django REST", "HTML", "CSS", "Tailwndcss", "Material Tailwind", "JavaScript", "React", "PostgreSQL"],
         "description": "Simple implementation of the Kanban method.",
-        "demo": "https://46d9d898-396f-4be6-a3e2-95606b6b5018.e1-eu-north-azure.choreoapps.dev",
+        "demo": "https://collaborawave.ne.choreoapps.dev",
         "repo": "https://github.com/matcane/CollaboraWave"
     },
-    "metin2Sim": {
-        "title": "Metin2Simulator",
-        "stack": ["HTML", "CSS", "Tailwndcss", "JavaScript", "React"],
-        "description": "Metin2 Bonus Simulator.",
-        "demo": "https://a38afbfd-c125-4e5a-a873-3de496dbe509.e1-eu-north-azure.choreoapps.dev",
-        "repo": "https://github.com/matcane/Metin2BonusSimulator"
-    },
-    "schronisko": {
+    3: {
         "title": "Schronisko",
         "stack": ["Python", "Django", "HTML", "CSS", "JavaScript", "PostgreSQL"],
         "description": "Application for monitoring animals in the shelter.",
         "demo": null,
         "repo": "https://github.com/matcane/schronisko"
     },
-    "duck_check": {
+    4: {
         "title": "DuckCheck",
         "stack": ["Python", "Kivy", "KivyMD", "SQLite"],
         "description": "Simple implementation of the DuckChess variant of chess.",
         "demo": null,
         "repo": "https://github.com/matcane/DuckCheck"
     },
-    "chatbot": {
+    5: {
         "title": "ChatBot",
         "stack": ["Python", "PyTorch", "NLTK", "Gradio"],
         "description": "Simple chatbot for decision systems.",
@@ -43,3 +51,11 @@
     }
 }
 
+export const projectsImg = {
+    0: metin2Sim,
+    1: quickDeck,
+    2: collaboraWave,
+    3: schronisko,
+    4: duckCheck,
+    5: chatbot,
+  };

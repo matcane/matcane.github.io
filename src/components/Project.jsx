@@ -22,9 +22,9 @@
 // }
 
 export function Project(props) {
-    const { id, data, img } = props;
+    const { data, img } = props;
     return (
-        <div id={id} className='flex flex-col items-center justify-center text-primary h-full w-full p-4 md:h-6/6 lg:h-full xl:h-full shrink-0 select-none'>
+        <div className='flex flex-col items-center justify-center text-primary h-full w-full p-4 md:h-6/6 lg:h-full xl:h-full shrink-0 select-none'>
             <div className='w-full relative' style={{ maxWidth: '100%', maxHeight: '65.25vh' }}>
                 <img draggable="false" className='w-full h-full object-contain' src={img} alt={data.title} />
             </div>
