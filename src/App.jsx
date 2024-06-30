@@ -26,6 +26,7 @@ function App() {
             <Project data={projectsData[3]} img={projectsImg[3]} />
             <Project data={projectsData[4]} img={projectsImg[4]} />
             <Project data={projectsData[5]} img={projectsImg[5]} />
+            <Project data={projectsData[6]} img={projectsImg[6]} />
           </section>
 
 

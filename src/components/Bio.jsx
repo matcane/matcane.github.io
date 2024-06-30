@@ -10,10 +10,13 @@ export function Bio() {
             {t("I am a master's student in computer science. I graduated in engineering in the same field. I specialize in the development of web applications.")}
             </p>
             <p className="text-base lg:text-xl xl:text-2xl 2xl:text-3xl mb-4 text-justify">
-                {t("I have worked with technologies such as")} <strong>Python</strong> (Django, Django REST), <strong>JavaScript</strong> (React), <strong>Firebase</strong>, <strong>HTML</strong>, <strong>CSS</strong> (Tailwind CSS), <strong>PostgreSQL</strong>, <strong>Git</strong> {t("and")} <strong>Linux</strong>.
+                {t("I have had contact with technologies such as:")} <strong>Python</strong> (Django, Django
+                REST), <strong>[JavaScript,
+                TypeScript]</strong> (React - Redux, Zustand), <strong>Firebase</strong>, <strong>HTML</strong>, <strong>CSS</strong> (Tailwind
+                CSS), <strong>PostgreSQL</strong>, <strong>Git</strong> {t("and")} <strong>Linux</strong>.
             </p>
             <p className="text-base lg:text-xl xl:text-2xl 2xl:text-3xl mb-4 text-justify">
-                {t("I also had contact with")} <strong>Java</strong>, <strong>C#</strong>, <strong>C++</strong> {t("and")} <strong>C</strong>. {t("I am looking for new challenges and development opportunities to create applications that have a real impact on users.")}
+                {t("I am looking for new challenges and development opportunities to create applications that have a real impact on users.")}
             </p>
         </div>
     )
