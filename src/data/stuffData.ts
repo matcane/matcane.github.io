@@ -5,8 +5,38 @@ import quickDeck from "/quickDeck.webp";
 import metin2Sim from "/metin2Sim.webp";
 import jsonquizzer from "/JSONQuizzer.webp";
 import chatbot from "/chatbot.webp";
+import dayone from "/dayone.webp";
+import zentaskflow from "/zentaskflow.webp";
 
 const stuffData = {
+    "day-one": {
+        title: "DayOne",
+        img: dayone,
+        stack: [
+            "React Native",
+            "Expo",
+            "TypeScript",
+            "React Native Paper",
+            "Firebase",
+            "MMKV",
+            "Zustand",
+        ],
+        description:
+            "DayOne is a workout management app that lets you log your workouts and save them in a database.",
+        demo: "https://github.com/matcane/DayOne/releases/tag/v1.0.0",
+        repo: "https://github.com/matcane/DayOne",
+        devStatus: "",
+    },
+    "zen-task-flow": {
+        title: "ZenTaskFlow",
+        img: zentaskflow,
+        stack: ["React Native", "Expo", "TypeScript", "SQLite", "Zustand"],
+        description:
+            "ZenTaskFlow is a minimalist task manager app inspired by the default Notes app on OPPO phones running ColorOS.",
+        demo: "https://github.com/matcane/ZenTaskFlow/releases/tag/v1.0.0",
+        repo: "https://github.com/matcane/ZenTaskFlow",
+        devStatus: "",
+    },
     "json-quizzer": {
         title: "JSONQuizzer",
         img: jsonquizzer,

@@ -20,7 +20,7 @@ function About() {
                         developer, focusing on creating attractive and
                         functional user interfaces. I am ready to gain practical
                         experience and develop my skills in HTML, CSS,
-                        JavaScript and React.
+                        JavaScript, React and React Native.
                     </Typography>
                 </SectionBodyWrapper>
             </MotionDiv>
