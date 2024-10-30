@@ -17,7 +17,7 @@
     "dependencies": {
         "@emotion/react": "^11.13.0",
         "@emotion/styled": "^11.13.0",
-        "@fontsource-variable/edu-au-vic-wa-nt-hand": "^5.0.1",
+        "@fontsource-variable/montserrat": "^5.1.0",
         "@mui/icons-material": "^5.16.6",
         "@mui/material": "^5.16.6",
         "framer-motion": "^11.3.24",
@@ -44,6 +44,6 @@
         "terser": "^5.31.3",
         "typescript": "^5.5.3",
         "typescript-eslint": "^8.1.0",
-        "vite": "^5.4.0"
+        "vite": "^5.4.6"
     }
 }

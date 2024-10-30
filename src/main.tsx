@@ -3,14 +3,14 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 
-import AppRouter from "./Router.tsx";
+import AppRouter from "./Router";
 
 import "./index.css";
-import "@fontsource-variable/edu-au-vic-wa-nt-hand";
+import "@fontsource-variable/montserrat";
 
 const theme = createTheme({
     typography: {
-        fontFamily: ['"Edu AU VIC WA NT Hand Variable", cursive'].join(","),
+        fontFamily: ["Montserrat Variable"].join(","),
     },
 });
 
