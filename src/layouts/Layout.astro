@@ -17,11 +17,12 @@ const { title, description } = Astro.props;
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#f4f4f0" />
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=DM+Mono:wght@300;400;500&display=swap"
-			rel="stylesheet"
+			rel="preload"
+			href="/fonts/archivo-latin.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
 		/>
 	</head>
 	<body>
@@ -30,6 +31,31 @@ const { title, description } = Astro.props;
 </html>
 
 <style is:global>
+	@font-face {
+		font-family: 'Archivo';
+		font-style: normal;
+		font-weight: 300 700;
+		font-stretch: 75% 125%;
+		font-display: swap;
+		src: url('/fonts/archivo-latin.woff2') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Mono';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url('/fonts/dm-mono-400-latin.woff2') format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Mono';
+		font-style: normal;
+		font-weight: 500;
+		font-display: swap;
+		src: url('/fonts/dm-mono-500-latin.woff2') format('woff2');
+	}
+
 	.p5-root {
 		--paper: #f4f4f0;
 		--ink: #0a0a0a;
