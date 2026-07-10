@@ -22,10 +22,10 @@ import { shippedProducts } from '../data/content';
 				<p class="release-highlight">{project.highlight}</p>
 				<div class="release-link" aria-label="Store availability">
 					{'playUrl' in project && project.playUrl && (
-						<a href={project.playUrl}>Play ↗</a>
+						<a href={project.playUrl}>Google Play ↗</a>
 					)}
 					{'storeUrl' in project && project.storeUrl && (
-						<a href={project.storeUrl}>Store ↗</a>
+						<a href={project.storeUrl}>App Store ↗</a>
 					)}
 				</div>
 			</li>
@@ -99,21 +99,60 @@ import { shippedProducts } from '../data/content';
 	}
 
 	.release-link {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 0.65rem;
+		justify-content: flex-end;
 		text-align: right;
 	}
 
 	.release-link a {
-		color: inherit;
+		display: inline-block;
+		padding: 0.4rem 0.6rem;
+		border: 1px solid var(--line);
+		color: var(--ink);
 		text-decoration: none;
+		letter-spacing: 0.04em;
+		transition:
+			border-color 0.25s var(--ease),
+			background 0.25s var(--ease);
+	}
+
+	.release-link a:hover {
+		border-color: var(--ink);
+		background: rgb(10 10 10 / 0.035);
 	}
 
 	@media (max-width: 68rem) {
 		.release {
-			grid-template-columns: minmax(13rem, 0.9fr) minmax(7rem, 0.4fr) 1fr;
+			grid-template-columns: minmax(0, 1fr) minmax(7.5rem, auto);
+			gap: 0.85rem 1.25rem;
+			align-items: start;
+		}
+
+		.release-title {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		.release-meta {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+			text-align: right;
+		}
+
+		.release-highlight {
+			grid-column: 1;
+			grid-row: 2;
 		}
 
 		.release-link {
-			display: none;
+			grid-column: 2;
+			grid-row: 2;
+			align-self: end;
+			justify-content: flex-end;
+			padding-left: 0;
 		}
 	}
 
@@ -123,9 +162,30 @@ import { shippedProducts } from '../data/content';
 			gap: 0.8rem;
 		}
 
+		.release-title {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		.release-meta {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+			text-align: right;
+		}
+
 		.release-highlight {
 			grid-column: 1 / -1;
+			grid-row: 2;
 			padding-left: 2.25rem;
+		}
+
+		.release-link {
+			grid-column: 1 / -1;
+			grid-row: 3;
+			justify-content: flex-start;
+			padding-left: 2.25rem;
+			text-align: left;
 		}
 	}
 </style>
