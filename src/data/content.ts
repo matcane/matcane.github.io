@@ -1,7 +1,7 @@
 export const meta = {
-	title: 'Mateusz Laskowski — Junior React Native Developer',
+	title: 'Mateusz Laskowski — React Native Developer',
 	description:
-		'Portfolio of Mateusz Laskowski, a Junior React Native Developer who has built, shipped, and maintained five apps for iOS and Android.',
+		'Portfolio of Mateusz Laskowski, a React Native Developer who has built, shipped, and maintained five apps for iOS and Android.',
 };
 
 export const identity = {
@@ -15,7 +15,7 @@ export const identity = {
 };
 
 export const heroContact = {
-	intent: 'Open to junior mobile roles',
+	intent: 'Open to mobile roles',
 	contactCta: 'Get in touch ↗',
 	workLabel: 'See flagship work ↓',
 	discussLabel: 'Discuss a mobile role ↗',
