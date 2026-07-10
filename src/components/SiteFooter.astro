@@ -1,0 +1,47 @@
+---
+import { identity } from '../data/content';
+---
+
+<footer>
+	<p>{identity.name}</p>
+	<p>Junior mobile developer · iOS + Android</p>
+	<a href="#top">Back to top ↑</a>
+</footer>
+
+<style>
+	footer {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+		padding: 1.15rem var(--page-pad);
+		background: var(--ink);
+		color: var(--paper);
+		font-family: var(--mono);
+		font-size: 0.58rem;
+		text-transform: uppercase;
+	}
+
+	footer p {
+		margin: 0;
+	}
+
+	footer p:nth-child(2) {
+		text-align: center;
+	}
+
+	footer a {
+		color: inherit;
+		text-align: right;
+		text-decoration: none;
+	}
+
+	@media (max-width: 47.99rem) {
+		footer {
+			grid-template-columns: 1fr auto;
+		}
+
+		footer p:nth-child(2) {
+			display: none;
+		}
+	}
+</style>

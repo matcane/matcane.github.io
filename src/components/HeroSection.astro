@@ -1,0 +1,375 @@
+---
+import { heroContact, identity } from '../data/content';
+---
+
+<section class="hero">
+	<div class="hero-copy">
+		<p class="overline load-in">Junior mobile developer · iOS + Android</p>
+		<h1 class="load-in">
+			<span>Built.</span>
+			<span>Shipped.</span>
+			<span class="outline">Maintained.</span>
+		</h1>
+		<p class="hero-note load-in">
+			React Native / TypeScript / Expo — hands-on across the full mobile lifecycle, from
+			implementation and integrations to store release, monitoring, fixes, and maintenance.
+		</p>
+	</div>
+
+	<div class="hero-signal load-in" aria-label="Five published mobile apps">
+		<div class="signal-ring">
+			<span class="signal-value">05</span>
+			<span class="signal-label">published apps</span>
+		</div>
+		<p>
+			<span>App Store + Google Play</span>
+			<span>iOS + Android</span>
+		</p>
+	</div>
+
+	<div class="hero-bottom load-in">
+		<div class="hero-cta-bar">
+			<div class="hero-cta-copy">
+				<p class="hero-cta-headline">{heroContact.intent}</p>
+				<p class="hero-cta-meta">
+					<span>{identity.location}</span>
+					<span aria-hidden="true">·</span>
+					<span>{identity.role}</span>
+				</p>
+			</div>
+			<div class="hero-cta-group">
+				<a class="hero-cta-primary" href="#contact">
+					{heroContact.contactCta}
+				</a>
+				<a class="hero-cta-ghost" href="#work">
+					{heroContact.workLabel}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.3fr);
+		grid-template-rows: 1fr auto;
+		gap: clamp(2rem, 5vw, 4rem);
+		min-height: 100svh;
+		padding: clamp(7.5rem, 14vh, 9.5rem) var(--page-pad) 1.5rem;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		background-image:
+			linear-gradient(
+				to right,
+				transparent calc(50% - 0.5px),
+				rgba(10, 10, 10, 0.07) 50%,
+				transparent calc(50% + 0.5px)
+			),
+			linear-gradient(
+				to bottom,
+				transparent calc(50% - 0.5px),
+				rgba(10, 10, 10, 0.07) 50%,
+				transparent calc(50% + 0.5px)
+			);
+		content: '';
+	}
+
+	.overline {
+		margin: 0;
+		font-family: var(--mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+
+	.hero h1 {
+		margin: clamp(1.25rem, 3vh, 2.25rem) 0 0;
+		font-size: clamp(4.1rem, 11.5vw, 10rem);
+		font-stretch: condensed;
+		font-weight: 650;
+		line-height: 0.76;
+		letter-spacing: -0.075em;
+		text-transform: uppercase;
+	}
+
+	.hero h1 span {
+		display: block;
+	}
+
+	.hero h1 .outline {
+		color: transparent;
+		-webkit-text-stroke: clamp(1px, 0.12vw, 2px) var(--ink);
+	}
+
+	.hero-note {
+		max-width: 40rem;
+		margin: clamp(1.75rem, 4vh, 3rem) 0 0;
+		font-size: clamp(0.98rem, 1.5vw, 1.25rem);
+		line-height: 1.4;
+		letter-spacing: -0.015em;
+	}
+
+	.hero-signal {
+		align-self: center;
+		justify-self: end;
+	}
+
+	.signal-ring {
+		position: relative;
+		display: grid;
+		width: clamp(11rem, 18vw, 16rem);
+		aspect-ratio: 1;
+		place-content: center;
+		border: 1px solid var(--ink);
+		border-radius: 50%;
+		text-align: center;
+	}
+
+	.signal-ring::before,
+	.signal-ring::after {
+		position: absolute;
+		border-radius: inherit;
+		content: '';
+	}
+
+	.signal-ring::before {
+		inset: 10%;
+		border: 1px dashed var(--line);
+		animation: rotate 25s linear infinite;
+	}
+
+	.signal-ring::after {
+		inset: -0.28rem;
+		border-top: 0.35rem solid var(--ink);
+		transform: rotate(36deg);
+		animation: rotate 12s linear infinite reverse;
+	}
+
+	.signal-value {
+		font-size: clamp(3.25rem, 6vw, 5rem);
+		font-weight: 650;
+		line-height: 0.8;
+		letter-spacing: -0.08em;
+	}
+
+	.signal-label {
+		margin-top: 0.65rem;
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		text-transform: uppercase;
+	}
+
+	.hero-signal > p {
+		display: grid;
+		gap: 0.2rem;
+		margin: 1.25rem 0 0;
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		line-height: 1.5;
+		text-align: right;
+		text-transform: uppercase;
+	}
+
+	.hero-signal > p span:last-child {
+		color: var(--muted);
+	}
+
+	@keyframes rotate {
+		to {
+			transform: rotate(1turn);
+		}
+	}
+
+	.hero-bottom {
+		grid-column: 1 / -1;
+	}
+
+	.hero-cta-bar {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: clamp(1.5rem, 4vw, 3rem);
+		align-items: center;
+		padding: clamp(1.25rem, 2.5vw, 1.75rem) 0 0.25rem;
+		border-top: 1px solid var(--ink);
+	}
+
+	.hero-cta-headline {
+		margin: 0;
+		font-size: clamp(1.35rem, 2.8vw, 2.35rem);
+		font-weight: 600;
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.hero-cta-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.45rem;
+		margin: 0.65rem 0 0;
+		color: var(--muted);
+		font-family: var(--mono);
+		font-size: 0.62rem;
+		text-transform: uppercase;
+	}
+
+	.hero-cta-group {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.75rem;
+		min-width: min(100%, 16.5rem);
+	}
+
+	.hero-cta-primary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: clamp(1rem, 2vw, 1.2rem) clamp(1.35rem, 3vw, 2rem);
+		border: 1px solid var(--ink);
+		background: var(--ink);
+		color: var(--paper);
+		font-family: var(--mono);
+		font-size: clamp(0.68rem, 1vw, 0.78rem);
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition:
+			background 0.3s var(--ease),
+			color 0.3s var(--ease);
+	}
+
+	.hero-cta-primary:hover {
+		background: transparent;
+		color: var(--ink);
+	}
+
+	.hero-cta-ghost {
+		padding: 0.2rem 0;
+		color: var(--muted);
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: color 0.25s var(--ease);
+	}
+
+	.hero-cta-ghost:hover {
+		color: var(--ink);
+	}
+
+	.load-in {
+		animation: enter 1s var(--ease) both;
+	}
+
+	.hero h1.load-in {
+		animation-delay: 0.08s;
+	}
+
+	.hero-note.load-in,
+	.hero-signal.load-in {
+		animation-delay: 0.18s;
+	}
+
+	.hero-bottom.load-in {
+		animation-delay: 0.28s;
+	}
+
+	@keyframes enter {
+		from {
+			opacity: 0;
+			transform: translateY(1.5rem);
+		}
+	}
+
+	@media (max-width: 47.99rem) {
+		.hero {
+			display: flex;
+			min-height: auto;
+			flex-direction: column;
+			padding-top: 6.5rem;
+		}
+
+		.hero h1 {
+			font-size: clamp(3.35rem, 17.5vw, 6.2rem);
+			line-height: 0.81;
+		}
+
+		.hero-signal {
+			display: flex;
+			align-self: stretch;
+			align-items: flex-end;
+			justify-content: space-between;
+			gap: 1.5rem;
+		}
+
+		.signal-ring {
+			width: 9.5rem;
+		}
+
+		.hero-signal > p {
+			margin: 0;
+		}
+
+		.hero-cta-bar {
+			grid-template-columns: 1fr;
+		}
+
+		.hero-cta-group {
+			width: 100%;
+			min-width: 0;
+		}
+
+		.hero-cta-headline {
+			font-size: clamp(1.25rem, 6.5vw, 1.75rem);
+		}
+	}
+
+	@media (max-width: 31rem) {
+		.hero h1 {
+			font-size: 3.3rem;
+		}
+
+		.hero-signal {
+			align-items: center;
+		}
+
+		.signal-ring {
+			width: 8.5rem;
+		}
+
+		.signal-value {
+			font-size: 3rem;
+		}
+
+		.hero-signal > p {
+			font-size: 0.52rem;
+		}
+
+		.hero-cta-headline {
+			font-size: 1.2rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.load-in {
+			opacity: 1;
+			transform: none;
+			animation: none;
+			transition: none;
+		}
+
+		.signal-ring::before,
+		.signal-ring::after {
+			animation: none;
+		}
+	}
+</style>

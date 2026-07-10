@@ -1,0 +1,75 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="p5-root">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#f4f4f0" />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..800&family=DM+Mono:wght@300;400;500&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	.p5-root {
+		--paper: #f4f4f0;
+		--ink: #0a0a0a;
+		--muted: #666662;
+		--line: #c9c9c3;
+		--sans: 'Archivo', Arial, sans-serif;
+		--mono: 'DM Mono', monospace;
+		--ease: cubic-bezier(0.16, 1, 0.3, 1);
+		color-scheme: light;
+		scroll-behavior: smooth;
+	}
+
+	.p5-root *,
+	.p5-root *::before,
+	.p5-root *::after {
+		box-sizing: border-box;
+	}
+
+	.p5-root body {
+		margin: 0;
+		min-width: 20rem;
+		font-family: var(--sans);
+		color: var(--ink);
+		background: var(--paper);
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.p5-root ::selection {
+		color: var(--paper);
+		background: var(--ink);
+	}
+
+	.p5-root a:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 4px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.p5-root {
+			scroll-behavior: auto;
+		}
+	}
+</style>

@@ -1,0 +1,297 @@
+---
+import ContactSection from '../components/ContactSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import FeaturedProjectSection from '../components/FeaturedProjectSection.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ShippedProductsSection from '../components/ShippedProductsSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ToolkitSection from '../components/ToolkitSection.astro';
+import TopBar from '../components/TopBar.astro';
+import { meta } from '../data/content';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title={meta.title} description={meta.description}>
+	<div class="progress" aria-hidden="true"><span></span></div>
+	<div class="dark-cursor" aria-hidden="true">
+		<span class="dark-cursor__ring"></span>
+		<span class="dark-cursor__dot"></span>
+	</div>
+
+	<TopBar />
+
+	<main id="top">
+		<HeroSection />
+		<FeaturedProjectSection />
+		<ShippedProductsSection />
+		<ToolkitSection />
+		<ExperienceSection />
+		<ContactSection />
+	</main>
+
+	<SiteFooter />
+
+	<script>
+		const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const revealItems = document.querySelectorAll('.reveal');
+		const progress = document.querySelector<HTMLElement>('.progress span');
+
+		if (reducedMotion) {
+			revealItems.forEach((item) => item.classList.add('visible'));
+		} else {
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.1, rootMargin: '0px 0px -5% 0px' },
+			);
+			revealItems.forEach((item) => observer.observe(item));
+		}
+
+		const updateProgress = () => {
+			if (!progress) return;
+			const max = document.documentElement.scrollHeight - window.innerHeight;
+			progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+		};
+
+		updateProgress();
+		window.addEventListener('scroll', updateProgress, { passive: true });
+
+		const finePointer = window.matchMedia('(pointer: fine)').matches;
+		const darkCursor = document.querySelector<HTMLElement>('.dark-cursor');
+		const darkSections = document.querySelectorAll('.dark-section');
+
+		if (finePointer && darkCursor && darkSections.length > 0) {
+			let x = 0;
+			let y = 0;
+			let targetX = 0;
+			let targetY = 0;
+			let visible = false;
+			let rafId = 0;
+
+			const setVisible = (next: boolean) => {
+				if (visible === next) return;
+				visible = next;
+				darkCursor.classList.toggle('is-visible', next);
+				if (!next) {
+					cancelAnimationFrame(rafId);
+					rafId = 0;
+					darkCursor.classList.remove('is-link');
+				}
+			};
+
+			const tick = () => {
+				if (!visible) return;
+				x += (targetX - x) * (reducedMotion ? 1 : 0.2);
+				y += (targetY - y) * (reducedMotion ? 1 : 0.2);
+				darkCursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+				rafId = requestAnimationFrame(tick);
+			};
+
+			const onPointerMove = (event: PointerEvent) => {
+				targetX = event.clientX;
+				targetY = event.clientY;
+				const target = event.target;
+				if (!(target instanceof Element)) {
+					setVisible(false);
+					return;
+				}
+				const inDark = target.closest('.dark-section');
+				if (!inDark) {
+					setVisible(false);
+					return;
+				}
+				if (!visible) {
+					x = targetX;
+					y = targetY;
+					setVisible(true);
+					if (!rafId) rafId = requestAnimationFrame(tick);
+				}
+				darkCursor.classList.toggle('is-link', Boolean(target.closest('a')));
+			};
+
+			document.addEventListener('pointermove', onPointerMove, { passive: true });
+			document.addEventListener('pointerleave', () => setVisible(false));
+		}
+	</script>
+</Layout>
+
+<style is:global>
+	.p5-root {
+		--page-pad: clamp(1rem, 3vw, 3rem);
+		--section-pad: clamp(4rem, 7vw, 6.5rem);
+	}
+
+	.progress {
+		position: fixed;
+		inset: 0 0 auto;
+		z-index: 20;
+		height: 3px;
+		background: transparent;
+	}
+
+	.progress span {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: var(--ink);
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
+	.micro {
+		margin: 0;
+		font-family: var(--mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.07em;
+		text-transform: uppercase;
+	}
+
+	.dark-section {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	@media (pointer: fine) {
+		.dark-section,
+		.dark-section a {
+			cursor: none;
+		}
+	}
+
+	.dark-cursor {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10000;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.2s var(--ease);
+		will-change: transform;
+	}
+
+	.dark-cursor.is-visible {
+		opacity: 1;
+	}
+
+	.dark-cursor__ring {
+		display: block;
+		width: 2.35rem;
+		height: 2.35rem;
+		border: 1px solid var(--paper);
+		border-radius: 50%;
+		transition:
+			transform 0.35s var(--ease),
+			background 0.35s var(--ease);
+	}
+
+	.dark-cursor.is-link .dark-cursor__ring {
+		transform: scale(1.45);
+		background: rgb(244 244 240 / 0.1);
+	}
+
+	.dark-cursor__dot {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 0.3rem;
+		height: 0.3rem;
+		background: var(--paper);
+		border-radius: 50%;
+		transform: translate(-50%, -50%);
+		transition: transform 0.35s var(--ease);
+	}
+
+	.dark-cursor.is-link .dark-cursor__dot {
+		transform: translate(-50%, -50%) scale(0.5);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.dark-cursor {
+			transition: none;
+		}
+
+		.dark-cursor__ring,
+		.dark-cursor__dot {
+			transition: none;
+		}
+	}
+
+	.section-index {
+		font-family: var(--mono);
+		font-size: 0.62rem;
+		line-height: 1.5;
+		text-transform: uppercase;
+	}
+
+	.section-index span {
+		display: block;
+		margin-bottom: 0.75rem;
+		font-family: var(--sans);
+		font-size: 2.5rem;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	.section-index p {
+		margin: 0;
+	}
+
+	.section-heading {
+		display: grid;
+		grid-template-columns: minmax(11rem, 0.32fr) 1fr;
+		margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+	}
+
+	.section-heading h2 {
+		margin: 0;
+		font-size: clamp(2.8rem, 6.4vw, 6rem);
+		font-weight: 500;
+		line-height: 0.87;
+		letter-spacing: -0.06em;
+	}
+
+	.reveal {
+		opacity: 0;
+		transform: translateY(1.75rem);
+		transition:
+			opacity 0.8s var(--ease),
+			transform 0.8s var(--ease);
+	}
+
+	.reveal.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@media (max-width: 47.99rem) {
+		.section-index {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		.section-index span {
+			margin: 0;
+		}
+
+		.section-heading {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.reveal {
+			opacity: 1;
+			transform: none;
+			animation: none;
+			transition: none;
+		}
+	}
+</style>

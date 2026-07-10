@@ -1,0 +1,170 @@
+---
+import { heroContact, identity } from '../data/content';
+---
+
+<section id="contact" class="contact">
+	<p class="micro reveal">05 / Contact</p>
+	<div class="contact-title reveal">
+		<div>
+			<h2>Looking for a junior<br />mobile developer?</h2>
+			<p>
+				I bring hands-on experience building, releasing, and maintaining cross-platform mobile
+				products.
+			</p>
+		</div>
+		<span aria-hidden="true">↗</span>
+	</div>
+
+	<div class="contact-grid reveal">
+		<div>
+			<p class="label">Email</p>
+			<p>{identity.email}</p>
+		</div>
+		<div>
+			<p class="label">LinkedIn</p>
+			<p>{identity.linkedIn}</p>
+		</div>
+		<div>
+			<p class="label">GitHub</p>
+			<p>{identity.github}</p>
+		</div>
+		<div>
+			<p class="label">Location</p>
+			<p>{identity.location}</p>
+		</div>
+	</div>
+	<div class="contact-actions reveal">
+		<a href={`mailto:${identity.email}`}>{heroContact.discussLabel}</a>
+		{identity.cv && <a href={identity.cv}>Download CV ↓</a>}
+	</div>
+</section>
+
+<style>
+	.contact {
+		padding: var(--section-pad) var(--page-pad);
+	}
+
+	.contact-title {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 2rem;
+		margin: clamp(2rem, 4vw, 3.5rem) 0;
+	}
+
+	.contact-title h2 {
+		margin: 0;
+		font-size: clamp(3.1rem, 8vw, 7.5rem);
+		font-weight: 600;
+		line-height: 0.82;
+		letter-spacing: -0.07em;
+	}
+
+	.contact-title p {
+		max-width: 40rem;
+		margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+		font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+		line-height: 1.45;
+	}
+
+	.contact-title > span {
+		font-size: clamp(2.5rem, 5vw, 5rem);
+		font-weight: 300;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		border-top: 1px solid var(--ink);
+		border-bottom: 1px solid var(--ink);
+	}
+
+	.contact-grid > div {
+		min-width: 0;
+		padding: 1.1rem 1.1rem 1.1rem 0;
+	}
+
+	.contact-grid > div + div {
+		padding-left: 1.1rem;
+		border-left: 1px solid var(--line);
+	}
+
+	.contact-grid p {
+		margin: 0;
+		overflow-wrap: anywhere;
+	}
+
+	.contact-grid .label {
+		margin-bottom: 0.5rem;
+		color: var(--muted);
+		font-family: var(--mono);
+		font-size: 0.57rem;
+		text-transform: uppercase;
+	}
+
+	.contact-grid p:last-child {
+		font-size: 0.82rem;
+	}
+
+	.contact-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+	.contact-actions a,
+	.contact-actions span {
+		padding: 0.7rem 0.85rem;
+		border: 1px solid currentColor;
+		color: inherit;
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 68rem) {
+		.contact-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.contact-grid > div:nth-child(3) {
+			padding-left: 0;
+			border-top: 1px solid var(--line);
+			border-left: 0;
+		}
+
+		.contact-grid > div:nth-child(4) {
+			border-top: 1px solid var(--line);
+		}
+	}
+
+	@media (max-width: 47.99rem) {
+		.contact-title > span {
+			display: none;
+		}
+
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.contact-grid > div,
+		.contact-grid > div + div,
+		.contact-grid > div:nth-child(3) {
+			padding: 0.9rem 0;
+			border-top: 1px solid var(--line);
+			border-left: 0;
+		}
+
+		.contact-grid > div:first-child {
+			border-top: 0;
+		}
+	}
+
+	@media (max-width: 31rem) {
+		.contact-title h2 {
+			font-size: 2.8rem;
+		}
+	}
+</style>

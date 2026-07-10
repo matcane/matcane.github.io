@@ -1,0 +1,131 @@
+---
+import { shippedProducts } from '../data/content';
+---
+
+<section class="release-section">
+	<header class="section-heading reveal">
+		<p class="micro">02 / Shipped products</p>
+		<h2>Four more apps.<br />Released to stores.</h2>
+	</header>
+
+	<ol class="release-list">
+		{shippedProducts.map((project) => (
+			<li class="release reveal">
+				<div class="release-title">
+					<span class="release-no">{project.index}</span>
+					<h3>{project.name}</h3>
+				</div>
+				<div class="release-meta">
+					<p>{project.platform}</p>
+					<p>{project.date}</p>
+				</div>
+				<p class="release-highlight">{project.highlight}</p>
+				<div class="release-link" aria-label="Store availability">
+					{'playUrl' in project && project.playUrl && (
+						<a href={project.playUrl}>Play ↗</a>
+					)}
+					{'storeUrl' in project && project.storeUrl && (
+						<a href={project.storeUrl}>Store ↗</a>
+					)}
+				</div>
+			</li>
+		))}
+	</ol>
+</section>
+
+<style>
+	.release-section {
+		padding: var(--section-pad) var(--page-pad);
+	}
+
+	.release-list {
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--ink);
+		list-style: none;
+	}
+
+	.release {
+		display: grid;
+		grid-template-columns: minmax(14rem, 1fr) minmax(8rem, 0.45fr) minmax(17rem, 1.15fr) auto;
+		gap: 1.25rem;
+		align-items: center;
+		min-height: 6.4rem;
+		padding: 1.1rem 0;
+		border-bottom: 1px solid var(--line);
+		transition: padding 0.4s var(--ease);
+	}
+
+	.release:hover {
+		padding-right: 0.75rem;
+		padding-left: 0.75rem;
+	}
+
+	.release-title {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+	}
+
+	.release-no,
+	.release-meta,
+	.release-link {
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		line-height: 1.45;
+		text-transform: uppercase;
+	}
+
+	.release-title h3 {
+		margin: 0;
+		font-size: clamp(1.35rem, 2.2vw, 2.15rem);
+		font-weight: 500;
+		letter-spacing: -0.04em;
+	}
+
+	.release-meta p,
+	.release-highlight {
+		margin: 0;
+	}
+
+	.release-meta p + p {
+		margin-top: 0.25rem;
+		color: var(--muted);
+	}
+
+	.release-highlight {
+		font-size: 0.85rem;
+		line-height: 1.45;
+	}
+
+	.release-link {
+		text-align: right;
+	}
+
+	.release-link a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	@media (max-width: 68rem) {
+		.release {
+			grid-template-columns: minmax(13rem, 0.9fr) minmax(7rem, 0.4fr) 1fr;
+		}
+
+		.release-link {
+			display: none;
+		}
+	}
+
+	@media (max-width: 47.99rem) {
+		.release {
+			grid-template-columns: 1fr auto;
+			gap: 0.8rem;
+		}
+
+		.release-highlight {
+			grid-column: 1 / -1;
+			padding-left: 2.25rem;
+		}
+	}
+</style>

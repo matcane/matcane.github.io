@@ -1,0 +1,235 @@
+---
+import { education, experience, languages } from '../data/content';
+---
+
+<section id="experience" class="profile dark-section">
+	<div class="section-index reveal">
+		<span>04</span>
+		<p>Experience<br />snapshot</p>
+	</div>
+
+	<div class="snapshot">
+		<article class="experience-card reveal">
+			<p class="micro">Mobile product experience</p>
+			<header>
+				<h2>{experience.role}</h2>
+				<time>{experience.dates}</time>
+			</header>
+			<p class="experience-context">{experience.context}</p>
+			<p class="experience-summary">{experience.summary}</p>
+			<ul>
+				{experience.responsibilities.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+		</article>
+
+		<aside class="profile-side">
+			<div class="education reveal">
+				<p class="micro">Education</p>
+				{education.map((item) => (
+					<article>
+						<h3>{item.degree}</h3>
+						<p>{item.school}</p>
+						<time>{item.dates}</time>
+					</article>
+				))}
+			</div>
+			<div class="languages reveal">
+				<p class="micro">Languages</p>
+				<ul>
+					{languages.map((item) => (
+						<li>
+							<strong>{item.language}</strong>
+							<span>{item.level}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</aside>
+	</div>
+</section>
+
+<style>
+	.profile {
+		display: grid;
+		grid-template-columns: minmax(6.5rem, 0.18fr) 1fr;
+		gap: clamp(2rem, 4vw, 4rem);
+		padding: var(--section-pad) var(--page-pad);
+		user-select: none;
+	}
+
+	.snapshot {
+		display: grid;
+		grid-template-columns: minmax(0, 1.55fr) minmax(16rem, 0.7fr);
+		gap: clamp(1.5rem, 3vw, 3rem);
+		min-width: 0;
+	}
+
+	.experience-card,
+	.profile-side {
+		border: 1px solid #424242;
+	}
+
+	.experience-card {
+		padding: clamp(1.5rem, 3vw, 2.5rem);
+	}
+
+	.experience-card header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.experience-card h2 {
+		margin: 0;
+		font-size: clamp(2.1rem, 4vw, 4rem);
+		font-weight: 500;
+		line-height: 0.95;
+		letter-spacing: -0.055em;
+	}
+
+	.experience-card time,
+	.education time {
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	.experience-context {
+		margin: 1rem 0 0;
+		color: #aaa;
+		font-family: var(--mono);
+		font-size: 0.62rem;
+		text-transform: uppercase;
+	}
+
+	.experience-summary {
+		max-width: 46rem;
+		margin: clamp(1.75rem, 3vw, 2.5rem) 0;
+		font-size: clamp(1rem, 1.5vw, 1.2rem);
+		line-height: 1.45;
+	}
+
+	.experience-card > ul {
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid #424242;
+		list-style: none;
+	}
+
+	.experience-card > ul li {
+		display: grid;
+		grid-template-columns: 1rem 1fr;
+		gap: 0.5rem;
+		padding: 0.7rem 0;
+		border-bottom: 1px solid #424242;
+		font-size: 0.84rem;
+		line-height: 1.45;
+	}
+
+	.experience-card > ul li::before {
+		color: #858585;
+		content: '—';
+	}
+
+	.profile-side {
+		display: grid;
+		grid-template-rows: auto auto;
+	}
+
+	.education,
+	.languages {
+		padding: clamp(1.25rem, 2.5vw, 2rem);
+	}
+
+	.languages {
+		border-top: 1px solid #424242;
+	}
+
+	.education article {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid #424242;
+	}
+
+	.education h3,
+	.education p {
+		margin: 0;
+	}
+
+	.education h3 {
+		font-size: 1rem;
+		font-weight: 500;
+	}
+
+	.education article p {
+		margin-top: 0.35rem;
+		color: #aaa;
+		font-size: 0.75rem;
+		line-height: 1.4;
+	}
+
+	.education time {
+		display: block;
+		margin-top: 0.65rem;
+		color: #aaa;
+	}
+
+	.languages ul {
+		margin: 1rem 0 0;
+		padding: 0;
+		border-top: 1px solid #424242;
+		list-style: none;
+	}
+
+	.languages li {
+		display: grid;
+		gap: 0.25rem;
+		padding: 0.75rem 0;
+		border-bottom: 1px solid #424242;
+	}
+
+	.languages strong {
+		font-size: 0.85rem;
+		font-weight: 500;
+	}
+
+	.languages span {
+		color: #aaa;
+		font-family: var(--mono);
+		font-size: 0.57rem;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 68rem) {
+		.snapshot {
+			grid-template-columns: minmax(0, 1.25fr) minmax(14rem, 0.75fr);
+		}
+	}
+
+	@media (max-width: 47.99rem) {
+		.profile {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.snapshot {
+			grid-template-columns: 1fr;
+		}
+
+		.experience-card header {
+			display: block;
+		}
+
+		.experience-card header time {
+			display: block;
+			margin-top: 0.75rem;
+			color: #aaa;
+		}
+	}
+</style>

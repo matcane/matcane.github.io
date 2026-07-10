@@ -1,0 +1,96 @@
+---
+import { toolkit } from '../data/content';
+---
+
+<section id="toolkit" class="toolkit-section">
+	<header class="section-heading reveal">
+		<p class="micro">03 / Production toolkit</p>
+		<h2>The stack behind<br />the releases.</h2>
+	</header>
+
+	<div class="toolkit-grid">
+		{toolkit.map((group, index) => (
+			<article class="toolkit-card reveal">
+				<p class="card-index">{String(index + 1).padStart(2, '0')}</p>
+				<h3>{group.title}</h3>
+				<ul>
+					{group.items.map((item) => (
+						<li>{item}</li>
+					))}
+				</ul>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.toolkit-section {
+		padding: var(--section-pad) var(--page-pad);
+		background: #e8e8e2;
+	}
+
+	.toolkit-grid {
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		border-top: 1px solid var(--ink);
+		border-left: 1px solid var(--line);
+	}
+
+	.toolkit-card {
+		min-width: 0;
+		padding: clamp(1.25rem, 2.5vw, 2rem);
+		border-right: 1px solid var(--line);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.card-index {
+		margin: 0 0 clamp(2rem, 4vw, 4rem);
+		font-family: var(--mono);
+		font-size: 0.6rem;
+	}
+
+	.toolkit-card h3 {
+		min-height: 2.4em;
+		margin: 0 0 1rem;
+		font-size: clamp(1.25rem, 2vw, 1.85rem);
+		font-weight: 500;
+		line-height: 1.05;
+		letter-spacing: -0.035em;
+	}
+
+	.toolkit-card ul {
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid var(--line);
+		list-style: none;
+	}
+
+	.toolkit-card li {
+		padding: 0.48rem 0;
+		border-bottom: 1px solid var(--line);
+		font-family: var(--mono);
+		font-size: 0.59rem;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	@media (max-width: 68rem) {
+		.toolkit-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 31rem) {
+		.toolkit-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.card-index {
+			margin-bottom: 1.5rem;
+		}
+
+		.toolkit-card h3 {
+			min-height: auto;
+		}
+	}
+</style>
