@@ -2,16 +2,16 @@
 import { flagship } from '../data/content';
 ---
 
-<section id="work" class="featured dark-section">
+<section class="featured">
 	<div class="section-index reveal">
-		<span>01</span>
-		<p>Flagship<br />in production</p>
+		<span>02</span>
+		<p>Commercial product<br />in production</p>
 	</div>
 
 	<div class="featured-main">
 		<header class="featured-head reveal">
 			<div>
-				<p class="micro">{flagship.status} · {flagship.platforms}</p>
+				<p class="micro">{flagship.status} / {flagship.platforms}</p>
 				<h2>{flagship.name}</h2>
 			</div>
 			<p class="project-number">{flagship.index}/05</p>
@@ -42,8 +42,8 @@ import { flagship } from '../data/content';
 					))}
 				</ul>
 				<div class="project-links" aria-label="T-Up store availability">
-					<a href={flagship.playUrl}>Google Play ↗</a>
-					<a href={flagship.storeUrl}>App Store ↗</a>
+					<a href={flagship.playUrl}>Google Play</a>
+					<a href={flagship.storeUrl}>App Store</a>
 				</div>
 			</div>
 		</div>
@@ -69,7 +69,7 @@ import { flagship } from '../data/content';
 		justify-content: space-between;
 		gap: 2rem;
 		padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
-		border-bottom: 1px solid #424242;
+		border-bottom: 1px solid var(--ink);
 	}
 
 	.featured-head h2 {
@@ -99,7 +99,7 @@ import { flagship } from '../data/content';
 		grid-template-columns: minmax(20rem, 0.9fr) minmax(20rem, 1.1fr);
 		gap: clamp(2rem, 5vw, 5rem);
 		padding-top: clamp(1.5rem, 3vw, 2.5rem);
-		border-top: 1px solid #424242;
+		border-top: 1px solid var(--ink);
 	}
 
 	.outcomes {
@@ -113,7 +113,7 @@ import { flagship } from '../data/content';
 
 	.outcomes > div + div {
 		padding-left: clamp(1rem, 2vw, 2rem);
-		border-left: 1px solid #424242;
+		border-left: 1px solid var(--line);
 	}
 
 	.outcomes strong,
@@ -131,7 +131,7 @@ import { flagship } from '../data/content';
 	.outcomes span {
 		max-width: 11rem;
 		margin-top: 0.75rem;
-		color: #b8b8b2;
+		color: var(--muted);
 		font-family: var(--mono);
 		font-size: 0.61rem;
 		line-height: 1.45;
@@ -141,21 +141,21 @@ import { flagship } from '../data/content';
 	.contribution-list {
 		margin: 0.85rem 0 1.5rem;
 		padding: 0;
-		border-top: 1px solid #424242;
+		border-top: 1px solid var(--line);
 		list-style: none;
 	}
 
 	.contribution-list li {
 		padding: 0.65rem 0;
-		border-bottom: 1px solid #424242;
+		border-bottom: 1px solid var(--line);
 		font-size: 0.86rem;
 		line-height: 1.4;
 	}
 
 	.contribution-list li::before {
 		margin-right: 0.65rem;
-		color: #858585;
-		content: '—';
+		color: var(--muted);
+		content: '-';
 	}
 
 	.stack-row {
@@ -169,7 +169,7 @@ import { flagship } from '../data/content';
 
 	.stack-row li {
 		padding: 0.4rem 0.55rem;
-		border: 1px solid #555;
+		border: 1px solid var(--line);
 		font-family: var(--mono);
 		font-size: 0.57rem;
 		text-transform: uppercase;
@@ -222,7 +222,7 @@ import { flagship } from '../data/content';
 
 		.outcomes > div + div {
 			padding: 1.25rem 0 0;
-			border-top: 1px solid #424242;
+			border-top: 1px solid var(--line);
 			border-left: 0;
 		}
 	}

@@ -3,16 +3,12 @@ import { heroContact, identity } from '../data/content';
 ---
 
 <section id="contact" class="contact">
-	<p class="micro reveal">05 / Contact</p>
+	<p class="micro reveal">06 / Contact</p>
 	<div class="contact-title reveal">
 		<div>
-			<h2>Looking for a<br />mobile developer?</h2>
-			<p>
-				I bring hands-on experience building, releasing, and maintaining cross-platform mobile
-				products.
-			</p>
+			<h2>Open to a<br />mobile role.</h2>
+			<p>I build, release, and maintain React Native apps on iOS and Android.</p>
 		</div>
-		<span aria-hidden="true">↗</span>
 	</div>
 
 	<div class="contact-grid reveal">
@@ -35,7 +31,7 @@ import { heroContact, identity } from '../data/content';
 	</div>
 	<div class="contact-actions reveal">
 		<a href={`mailto:${identity.email}`}>{heroContact.discussLabel}</a>
-		{identity.cv && <a href={identity.cv}>Download CV ↓</a>}
+		{identity.cv && <a href={identity.cv}>Download CV</a>}
 	</div>
 </section>
 
@@ -65,11 +61,6 @@ import { heroContact, identity } from '../data/content';
 		margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
 		font-size: clamp(0.95rem, 1.4vw, 1.15rem);
 		line-height: 1.45;
-	}
-
-	.contact-title > span {
-		font-size: clamp(2.5rem, 5vw, 5rem);
-		font-weight: 300;
 	}
 
 	.contact-grid {
@@ -141,10 +132,6 @@ import { heroContact, identity } from '../data/content';
 	}
 
 	@media (max-width: 47.99rem) {
-		.contact-title > span {
-			display: none;
-		}
-
 		.contact-grid {
 			grid-template-columns: 1fr;
 		}
