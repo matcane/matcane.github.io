@@ -1,0 +1,184 @@
+---
+import { hairStudioCaseStudy } from '../data/content';
+---
+
+<section id="work" class="case-study dark-section">
+	<div class="section-index reveal">
+		<span>{hairStudioCaseStudy.index}</span>
+		<p>Primary<br />case study</p>
+	</div>
+
+	<div class="case-study-main">
+		<header class="case-study-head reveal">
+			<div>
+				<p class="micro">{hairStudioCaseStudy.status} / {hairStudioCaseStudy.platform}</p>
+				<h2>{hairStudioCaseStudy.name}</h2>
+			</div>
+			<p class="case-study-number">{hairStudioCaseStudy.index}/05</p>
+		</header>
+
+		<p class="case-study-summary reveal">{hairStudioCaseStudy.summary}</p>
+
+		<ol class="case-study-points reveal">
+			{hairStudioCaseStudy.points.map((point) => (
+				<li>
+					<h3>{point.title}</h3>
+					<p>{point.description}</p>
+				</li>
+			))}
+		</ol>
+
+		<div class="case-study-meta reveal">
+			<ul class="stack-row" aria-label="Hair Studio technology stack">
+				{hairStudioCaseStudy.stack.map((item) => (
+					<li>{item}</li>
+				))}
+			</ul>
+			<div class="project-links" aria-label="Hair Studio source and store">
+				<a href={hairStudioCaseStudy.codeUrl}>Review source code</a>
+				<a href={hairStudioCaseStudy.storeUrl}>View on the App Store</a>
+			</div>
+			<p class="case-study-note">{hairStudioCaseStudy.note}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.case-study {
+		display: grid;
+		grid-template-columns: minmax(6.5rem, 0.18fr) 1fr;
+		gap: clamp(2rem, 4vw, 4rem);
+		padding: var(--section-pad) var(--page-pad);
+		user-select: none;
+	}
+
+	.case-study-main {
+		min-width: 0;
+	}
+
+	.case-study-head {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 2rem;
+		padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+		border-bottom: 1px solid #424242;
+	}
+
+	.case-study-head h2 {
+		margin: 0.35rem 0 0;
+		font-size: clamp(3.4rem, 8vw, 7rem);
+		font-weight: 600;
+		line-height: 0.82;
+		letter-spacing: -0.07em;
+	}
+
+	.case-study-number {
+		margin: 0;
+		font-family: var(--mono);
+		font-size: 0.65rem;
+	}
+
+	.case-study-summary {
+		max-width: 46rem;
+		margin: clamp(1.5rem, 3vw, 2.5rem) 0;
+		font-size: clamp(1.05rem, 1.75vw, 1.4rem);
+		line-height: 1.4;
+		letter-spacing: -0.02em;
+	}
+
+	.case-study-points {
+		margin: 0;
+		padding: 0;
+		border-top: 1px solid #424242;
+		list-style: none;
+	}
+
+	.case-study-points li {
+		padding: 0.85rem 0;
+		border-bottom: 1px solid #424242;
+	}
+
+	.case-study-points h3 {
+		margin: 0;
+		font-size: clamp(1rem, 1.5vw, 1.2rem);
+		font-weight: 500;
+		letter-spacing: -0.03em;
+	}
+
+	.case-study-points p {
+		max-width: 42rem;
+		margin: 0.35rem 0 0;
+		color: #b8b8b2;
+		font-size: 0.9rem;
+		line-height: 1.45;
+	}
+
+	.case-study-meta {
+		margin-top: clamp(1.75rem, 3vw, 2.5rem);
+	}
+
+	.stack-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.stack-row li {
+		padding: 0.4rem 0.55rem;
+		border: 1px solid #555;
+		font-family: var(--mono);
+		font-size: 0.57rem;
+		text-transform: uppercase;
+	}
+
+	.project-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+	}
+
+	.project-links a {
+		padding: 0.7rem 0.85rem;
+		border: 1px solid currentColor;
+		color: inherit;
+		font-family: var(--mono);
+		font-size: 0.6rem;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.case-study-note {
+		max-width: 36rem;
+		margin: 1.15rem 0 0;
+		color: #858585;
+		font-size: 0.8rem;
+		line-height: 1.45;
+	}
+
+	@media (max-width: 47.99rem) {
+		.case-study {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.case-study-head h2 {
+			font-size: 3.4rem;
+		}
+	}
+
+	@media (max-width: 31rem) {
+		.case-study-head {
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.case-study-head h2 {
+			font-size: 2.8rem;
+		}
+	}
+</style>

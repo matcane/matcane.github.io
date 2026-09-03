@@ -1,12 +1,12 @@
 export const meta = {
-	title: 'Mateusz Laskowski — React Native Developer',
+	title: 'Mateusz Laskowski - React Native Developer',
 	description:
 		'Portfolio of Mateusz Laskowski, a React Native Developer who has built, shipped, and maintained five apps for iOS and Android.',
 };
 
 export const identity = {
 	name: 'Mateusz Laskowski',
-	role: 'Mobile product developer',
+	role: 'React Native Developer',
 	location: 'Warsaw',
 	email: 'mat.laskowski.kontakt@gmail.com',
 	linkedIn: 'https://www.linkedin.com/in/mateusz-l-16321b310/',
@@ -16,20 +16,20 @@ export const identity = {
 
 export const heroContact = {
 	intent: 'Open to mobile roles',
-	contactCta: 'Get in touch ↗',
-	workLabel: 'See flagship work ↓',
-	discussLabel: 'Discuss a mobile role ↗',
+	contactCta: 'Get in touch',
+	workLabel: 'See the work',
+	discussLabel: 'Discuss a mobile role',
 };
 
 export const flagship = {
-	index: '01',
+	index: '02',
 	name: 'T-Up',
-	status: 'Published · maintained',
+	status: 'Published / maintained',
 	platforms: 'iOS + Android',
 	summary:
 		"A cross-platform men's wellness app for habits around exercise, nutrition, sleep, stress management, and lifestyle.",
 	results: [
-		{ value: '5,000+', label: 'downloads' },
+		{ value: '7,000+', label: 'downloads' },
 		{ value: '130-200', label: 'weekly organic Google Play installs' },
 	],
 	contribution: [
@@ -42,21 +42,50 @@ export const flagship = {
 	storeUrl: 'https://apps.apple.com/us/app/t-up-boost-testosterone/id6757311278',
 };
 
+export const hairStudioCaseStudy = {
+	index: '01',
+	name: 'Hair Studio',
+	status: 'Published / public code available',
+	platform: 'iOS',
+	summary:
+		'An iOS app for trying on hairstyles, color, and makeup. I built the mobile client from camera and on-device checks through image prep and local generation state.',
+	points: [
+		{
+			title: 'Catch bad photos on device',
+			description:
+				'Face detection drops shots with no face, several faces, or a face outside the frame. No paid request goes out.',
+		},
+		{
+			title: 'Crop and shrink before upload',
+			description: 'A 2:3 crop around the face, capped at 1024 x 1536, keeps the upload small.',
+		},
+		{
+			title: 'Keep generation if the app backgrounds',
+			description:
+				'SQLite and local files keep pending, ready, or failed if the app backgrounds or the network drops.',
+		},
+	],
+	stack: [
+		'React Native',
+		'TypeScript',
+		'Expo',
+		'Vision Camera',
+		'SQLite',
+		'TanStack Query',
+		'Zod',
+	],
+	codeUrl: 'https://github.com/matcane/hair-studio-showcase',
+	storeUrl: 'https://apps.apple.com/app/hair-studio-hairstyle-try-on/id6761934608',
+	note: 'The public repo is the mobile client. Image-generation backend and monetization stay private.',
+};
+
 export const shippedProducts = [
-	{
-		index: '02',
-		name: 'Hair Studio',
-		platform: 'iOS',
-		date: 'May 2026',
-		highlight: 'On-device face analysis · privacy-aware image flow · RevenueCat',
-		storeUrl: 'https://apps.apple.com/app/hair-try-on-ai-styles/id6761934608',
-	},
 	{
 		index: '03',
 		name: 'AstroNova',
 		platform: 'Android',
 		date: 'Apr 2025',
-		highlight: 'First complete Google Play release · ~100 downloads',
+		highlight: 'First complete Google Play release / ~100 downloads',
 		playUrl: 'https://play.google.com/store/apps/details?id=com.azzteco.astro.nova',
 	},
 	{
@@ -64,7 +93,7 @@ export const shippedProducts = [
 		name: 'Christmas Cards AI',
 		platform: 'iOS',
 		date: 'Holiday 2025',
-		highlight: 'AI generation · save · share',
+		highlight: 'AI generation / save / share',
 		storeUrl: 'https://apps.apple.com/us/app/christmas-cards-greetings-ai/id6755625843',
 	},
 	{
@@ -72,7 +101,7 @@ export const shippedProducts = [
 		name: 'Couples Questions',
 		platform: 'iOS',
 		date: 'Feb 2026',
-		highlight: 'No account or subscription · same-device gameplay',
+		highlight: 'No account or subscription / same-device gameplay',
 		storeUrl: 'https://apps.apple.com/us/app/couples-questions-games/id6757876851',
 	},
 ];
@@ -104,8 +133,8 @@ export const toolkit = [
 
 export const experience = {
 	role: 'React Native Developer',
-	dates: 'Jan 2025 — present',
-	context: 'Azzteco · own products · informal two-person product team',
+	dates: 'Jan 2025 - present',
+	context: 'Azzteco / own products / informal two-person product team',
 	summary:
 		'Started with shared development, then gradually took full ownership of mobile while the other team member focused on marketing and growth.',
 	responsibilities: [
@@ -119,12 +148,12 @@ export const education = [
 	{
 		degree: 'MSc in Computer Science',
 		school: 'University of Warmia and Mazury in Olsztyn',
-		dates: 'Mar 2024 — Jun 2025',
+		dates: 'Mar 2024 - Jun 2025',
 	},
 	{
 		degree: 'BSc in Computer Science',
 		school: 'University of Warmia and Mazury in Olsztyn',
-		dates: 'Oct 2020 — Feb 2024',
+		dates: 'Oct 2020 - Feb 2024',
 	},
 ];
 

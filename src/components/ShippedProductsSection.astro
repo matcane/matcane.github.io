@@ -2,10 +2,10 @@
 import { shippedProducts } from '../data/content';
 ---
 
-<section class="release-section">
+<section class="release-section dark-section">
 	<header class="section-heading reveal">
-		<p class="micro">02 / Shipped products</p>
-		<h2>Four more apps.<br />Released to stores.</h2>
+		<p class="micro">03 / Shipped products</p>
+		<h2>Three more apps.<br />Released to stores.</h2>
 	</header>
 
 	<ol class="release-list">
@@ -22,10 +22,10 @@ import { shippedProducts } from '../data/content';
 				<p class="release-highlight">{project.highlight}</p>
 				<div class="release-link" aria-label="Store availability">
 					{'playUrl' in project && project.playUrl && (
-						<a href={project.playUrl}>Google Play ↗</a>
+						<a href={project.playUrl}>Google Play</a>
 					)}
 					{'storeUrl' in project && project.storeUrl && (
-						<a href={project.storeUrl}>App Store ↗</a>
+						<a href={project.storeUrl}>App Store</a>
 					)}
 				</div>
 			</li>
@@ -36,12 +36,13 @@ import { shippedProducts } from '../data/content';
 <style>
 	.release-section {
 		padding: var(--section-pad) var(--page-pad);
+		user-select: none;
 	}
 
 	.release-list {
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid var(--ink);
+		border-top: 1px solid #424242;
 		list-style: none;
 	}
 
@@ -52,7 +53,7 @@ import { shippedProducts } from '../data/content';
 		align-items: center;
 		min-height: 6.4rem;
 		padding: 1.1rem 0;
-		border-bottom: 1px solid var(--line);
+		border-bottom: 1px solid #424242;
 		transition: padding 0.4s var(--ease);
 	}
 
@@ -90,7 +91,7 @@ import { shippedProducts } from '../data/content';
 
 	.release-meta p + p {
 		margin-top: 0.25rem;
-		color: var(--muted);
+		color: #aaa;
 	}
 
 	.release-highlight {
@@ -109,8 +110,8 @@ import { shippedProducts } from '../data/content';
 	.release-link a {
 		display: inline-block;
 		padding: 0.4rem 0.6rem;
-		border: 1px solid var(--line);
-		color: var(--ink);
+		border: 1px solid #555;
+		color: inherit;
 		text-decoration: none;
 		letter-spacing: 0.04em;
 		transition:
@@ -119,8 +120,8 @@ import { shippedProducts } from '../data/content';
 	}
 
 	.release-link a:hover {
-		border-color: var(--ink);
-		background: rgb(10 10 10 / 0.035);
+		border-color: currentColor;
+		background: rgb(244 244 240 / 0.08);
 	}
 
 	@media (max-width: 68rem) {
